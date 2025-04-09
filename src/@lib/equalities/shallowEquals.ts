@@ -25,10 +25,8 @@ export function shallowEquals<T>(objA: T, objB: T): boolean {
 
   // 4. 모든 키에 대해 얕은 비교 수행
   for (const key of keyA) {
-    if (
-      !objB.hasOwnProperty(key) ||
-      (objA as any)[key] !== (objB as any)[key]
-    ) {
+    if ( !objB.hasOwnProperty(key) ||
+         (objA as any)[key] !== (objB as any)[key]) {
       return false;
     }
   }
