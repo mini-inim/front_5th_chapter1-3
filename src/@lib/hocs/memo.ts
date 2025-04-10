@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { shallowEquals } from "../equalities";
 import { ComponentType, createElement, ReactNode } from "react";
 
@@ -13,7 +12,6 @@ export function memo<P extends object>(
   // 2. 메모이제이션된 컴포넌트 생성
   return function MemoizedComponent(props: P) {
     if (oldProps === null || !_equals(oldProps, props)) {
-      
       // 3. equals 함수를 사용하여 props 비교
       memorized = createElement(Component, props);
 
@@ -23,6 +21,3 @@ export function memo<P extends object>(
     return memorized as ReactNode;
   };
 }
-
-
-
