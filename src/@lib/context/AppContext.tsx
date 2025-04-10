@@ -4,7 +4,11 @@ import { AppContextType } from "./types";
 
 export const AppContext = createContext<AppContextType | undefined>(undefined);
 
-export const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
+export const AppContextProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [theme, setTheme] = useState<string>("light");
 
   const toggleTheme = useCallback(() => {
@@ -18,4 +22,3 @@ export const AppContextProvider = ({ children }: { children: React.ReactNode }) 
 
   return <AppContext.Provider value={appValue}>{children}</AppContext.Provider>;
 };
-

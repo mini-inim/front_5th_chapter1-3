@@ -8,7 +8,6 @@ export const Header: React.FC = () => {
   const { theme, toggleTheme } = useAppContext();
   const { user, login, logout } = useAuthContext();
 
-
   const handleLogin = useCallback(() => {
     // 실제 애플리케이션에서는 사용자 입력을 받아야 합니다.
     login("user@example.com", "password");

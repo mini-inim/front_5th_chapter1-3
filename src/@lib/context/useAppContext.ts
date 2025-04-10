@@ -1,7 +1,5 @@
-import { createContext, useContext } from "react";
-import { AppContextType } from "./types";
-
-const AppContext = createContext<AppContextType | undefined>(undefined);
+import {  useContext } from "react";
+import { AppContext } from "./AppContext";
 
 // 커스텀 훅: useAppContext
 export const useAppContext = () => {
