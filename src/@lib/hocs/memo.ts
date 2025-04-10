@@ -6,16 +6,14 @@ export function memo<P extends object>(
   Component: ComponentType<P>,
   _equals = shallowEquals,
 ) {
-
   // 1. 이전 props를 저장할 ref 생성
   let oldProps: P | null = null;
   let oldResult: JSX.Element;
 
   // 2. 메모이제이션된 컴포넌트 생성
   function memoComponent(newProps: P) {
-
     // 3. equals 함수를 사용하여 props 비교
-    if(_equals(newProps, oldProps)){
+    if (_equals(newProps, oldProps)) {
       return oldResult;
     }
 
@@ -24,5 +22,5 @@ export function memo<P extends object>(
     oldResult = React.createElement(Component, newProps);
 
     return oldResult;
-  };
+  }
 }
