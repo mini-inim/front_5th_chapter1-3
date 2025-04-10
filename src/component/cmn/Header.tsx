@@ -1,14 +1,18 @@
+import { useCallback } from "../../@lib";
 import { useAppContext } from "../../@lib/context/useAppContext";
+import { useAuthContext } from "../../@lib/context/useAuthContexts";
 import { renderLog } from "../../utils";
 
 export const Header: React.FC = () => {
   renderLog("Header rendered");
-  const { theme, toggleTheme, user, login, logout } = useAppContext();
+  const { theme, toggleTheme } = useAppContext();
+  const { user, login, logout } = useAuthContext();
 
-  const handleLogin = () => {
+
+  const handleLogin = useCallback(() => {
     // 실제 애플리케이션에서는 사용자 입력을 받아야 합니다.
     login("user@example.com", "password");
-  };
+  }, [login]);
 
   return (
     <header className="bg-gray-800 text-white p-4">
